@@ -15,10 +15,8 @@
 
 #### Tests
 
-- How do you run tests?
-- What assertions were made?
-- What assertions need to be / should be made?
+- How do you run tests? `npm test`
 
 #### UML
 
-Link to an image of the UML for your application and response to events
+Coming Soon
