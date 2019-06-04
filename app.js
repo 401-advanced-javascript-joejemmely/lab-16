@@ -1,17 +1,12 @@
 'use strict';
 
-const fs = require('fs');
+const eventEmitter = require('./lib/event-emitter');
+const eventNames = require('./lib/event-names');
 
-const alterFile = (file) => {
-  fs.readFile( file, (err, data) => {
-    if(err) { throw err; }
-    let text = data.toString().toUpperCase();
-    fs.writeFile( file, Buffer.from(text), (err, data) => {
-      if(err) { throw err; }
-      console.log(`${file} saved`);
-    });
-  });
-};
+require('./lib/logger.js');
+require('./lib/handle-read.js');
+require('./lib/handle-transform.js');
+require('./lib/handle-write.js');
 
 let file = process.argv.slice(2).shift();
-alterFile(file);
+eventEmitter.emit(eventNames.READ, file);
